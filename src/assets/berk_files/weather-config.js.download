@@ -1,0 +1,14 @@
+const url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss';
+const method = 'GET';
+const concat = '&';
+const cunit = 'c';
+const funit = 'f';
+const celsiusId = 'currently_celsius';
+const fahrenheitId = 'currently_fahrenheit';
+const howwastheday = 'currently_howwastheday';
+const currently_nodata = 'currently_nodata';
+const unitsoFcelsius = '° C /';
+const unitsFahrenheit = '° F ';
+const app_id = 'y8nj0E3c';
+const consumer_key = 'dj0yJmk9eWsxa1hTWTFrMlpHJmQ9WVdrOWVUaHVhakJGTTJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFm';
+const consumer_secret = 'da81c0ddfc0d72a4a72833b0880feb90b475cb69';

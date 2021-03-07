@@ -1,0 +1,18 @@
+/* .para {
+  width: 50%;
+  height: 500px;
+} */
+.academic-home {
+  margin-left: -1px;
+}
+.para-txt {
+  position: relative;
+  top: 150px;
+  text-align: center;
+  height: 350px;
+  color: white;
+}
+.ub {
+  max-width: 300px;
+  /* height: 300px; */
+}
