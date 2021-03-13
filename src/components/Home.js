@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { Parallax } from "react-parallax";
 import aos from "aos";
 import "aos/dist/aos.css";
@@ -28,18 +28,175 @@ import tp from "../assets/tp.jpg";
 
 import "../css/academic.css";
 import "../css/admission.css";
+import Academics from "./Academics";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import Scene from "./Scene";
+import { Link, useLocation } from "react-router-dom";
 
 const Home = ({ setClassName, className }) => {
   useEffect(() => {
     aos.init({ duration: 700 });
   }, []);
 
+  const location = useLocation();
+  const [hash, setHash] = useState(location.hash);
+
+  const liStyle = {
+    active: {
+      p: {
+        width: "100%",
+        background: "white",
+        paddingLeft: "-20px",
+        padding: "10px 10px 10px 10px",
+        borderLeft: "5px solid #ff4655",
+        borderBottom: "5px solid #ff4655",
+        textAlign: "center",
+        transition: "0.1s",
+      },
+      c: {
+        width: "100%",
+        textDecoration: "none",
+        color: "black",
+        textAlign: "center",
+        transition: "0.1s",
+      },
+    },
+    nonActive: {
+      p: {
+        width: "100%",
+        paddingLeft: "-20px",
+        padding: "10px 10px 10px 10px",
+        borderLeft: "5px solid #ff4655",
+        textAlign: "center",
+        transition: "0.1s",
+      },
+      c: {
+        width: "100%",
+        textDecoration: "none",
+        color: "#ff4655",
+        transition: "0.1s",
+      },
+    },
+  };
   return (
     <>
       <div className="line"></div>
-      <div className="home-container">
+      <nav className="nav">
+        <div className="container liContainer">
+          <li
+            style={
+              location.hash === "#home" || location.hash === ""
+                ? liStyle.active.p
+                : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#home" || location.hash === ""
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#home"
+            >
+              HOME
+            </a>
+          </li>
+          <li
+            style={
+              location.hash === "#news" ? liStyle.active.p : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#news"
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#news"
+            >
+              LATEST NEWS
+            </a>
+          </li>
+          <li
+            style={
+              location.hash === "#research"
+                ? liStyle.active.p
+                : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#research"
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#research"
+            >
+              RESEARCH
+            </a>
+          </li>
+          <li
+            style={
+              location.hash === "#campus"
+                ? liStyle.active.p
+                : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#campus"
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#campus"
+            >
+              CAMPUS LIFE
+            </a>
+          </li>
+          <li
+            style={
+              location.hash === "#admission"
+                ? liStyle.active.p
+                : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#admission"
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#admission"
+            >
+              ADMISSION
+            </a>
+          </li>
+          <li
+            style={
+              location.hash === "#about"
+                ? liStyle.active.p
+                : liStyle.nonActive.p
+            }
+          >
+            <a
+              style={
+                location.hash === "#about"
+                  ? liStyle.active.c
+                  : liStyle.nonActive.c
+              }
+              href="#about"
+            >
+              ABOUT
+            </a>
+          </li>
+        </div>
+      </nav>
+      <div id="home" className="home-container">
         <div className="home-bg-title-container">
-          {/* <button
+          <div className="top-line"></div>
+          <button
             className="side-btn"
             onClick={() =>
               className === "canvas"
@@ -48,7 +205,7 @@ const Home = ({ setClassName, className }) => {
             }
           >
             open
-          </button> */}
+          </button>
           <img
             // src={`https://www.jhu.edu/assets/themes/machado/assets/images/logos/university-logo-small-horizontal-white-156eae9527.svg`}
             src={srmlogo}
@@ -64,7 +221,7 @@ const Home = ({ setClassName, className }) => {
             <div className="dot"></div>
           </div>
 
-          <div className="center container" data-aos="fade-up">
+          <div id="news" className="center container" data-aos="fade-up">
             <h1 className="home-title center" data-aos="fade-down">
               LATEST NEWS
             </h1>
@@ -89,108 +246,38 @@ const Home = ({ setClassName, className }) => {
 
           <hr className="container" />
 
-          <div className="container">
+          <div id="academics" className="container">
             <h1 className="home-title center" data-aos="fade-down">
               ACADEMICS
             </h1>
-            <div
-              className="row"
-              style={{ marginLeft: 0, marginRight: 0 }}
-              data-aos="fade-left"
-            >
-              <Parallax
-                className="center para col-6"
-                bgImage={sci}
-                bgImageAlt="alt"
-                strength={600}
-              >
-                <div className="aca-overlay"></div>
-                <div className="aca-h">
-                  <h1 className="para-txt">Engineering</h1>
-                </div>
-              </Parallax>
-              <div className="col-6">
-                <h1>Engineering</h1>
-                <p>
-                  We have long been at the forefront of breakthrough research
-                  and innovation. We offer several degree programs, major, minor
-                  and specializations, as well as research opportunities, to
-                  follow your passion.
-                </p>
-              </div>
-            </div>
-            <div
-              className="row"
-              style={{ marginLeft: 0, marginRight: 0 }}
-              data-aos="fade-right"
-            >
-              <div className="col-6">
-                <h1>Medical & Health Sciences</h1>
-                <p>
-                  Join us in pioneering research, healthcare and implementing
-                  effective clinical therapies to improve living conditions.
-                </p>
-              </div>
-              <Parallax
-                className="center para col-6"
-                bgImage={med}
-                bgImageAlt="alt"
-                strength={600}
-              >
-                <div className="aca-h">
-                  <h1 className="para-txt">Medical & Health Sciences</h1>
-                </div>
-              </Parallax>
-            </div>
-            <div
-              className="row"
-              style={{ marginLeft: 0, marginRight: 0 }}
-              data-aos="fade-left"
-            >
-              <Parallax
-                className="center para col-6"
-                bgImage={buss}
-                bgImageAlt="alt"
-                strength={600}
-              >
-                <div className="aca-h">
-                  <h1 className="para-txt">Management</h1>
-                </div>
-              </Parallax>
-              <div className="col-6">
-                <h1>Management</h1>
-                <p>
-                  Creating effective leaders who can provide innovative ideas
-                  and solutions to change the world.
-                </p>
-              </div>
-            </div>
-            <div
-              className="row"
-              style={{ marginLeft: 0, marginRight: 0 }}
-              data-aos="fade-right"
-            >
-              <div className="col-6">
-                <h1>Science & Humanities</h1>
-                <p>
-                  It is the place for fundamental research, curiosity driven,
+            {/* <div className="row"> */}
+            <Carousel autoPlay infiniteLoop>
+              <Academics img={sci} />
+
+              <Academics
+                img={med}
+                title="Medical & Health Sciences"
+                para="Join us in pioneering research, healthcare and implementing
+                  effective clinical therapies to improve living conditions."
+              />
+
+              <Academics
+                img={buss}
+                title="Management"
+                para=" Creating effective leaders who can provide innovative ideas
+                  and solutions to change the world."
+              />
+
+              <Academics
+                img={hum}
+                title="Science & Humanities"
+                para="It is the place for fundamental research, curiosity driven,
                   where free, open and critical inquiry is pursued across
-                  disciplines.
-                </p>
-              </div>
-              <Parallax
-                className="center para col-6"
-                bgImage={hum}
-                bgImageAlt="alt"
-                strength={600}
-              >
-                <div className="aca-h">
-                  <h1 className="para-txt">Science & Humanities</h1>
-                </div>
-              </Parallax>
-            </div>
+                  disciplines."
+              />
+            </Carousel>
           </div>
-          <div className="center container">
+          <div id="research" className="center container">
             <h1 className="home-title center">Research</h1>
             <div className="row no-gutter">
               <Card
@@ -211,29 +298,30 @@ const Home = ({ setClassName, className }) => {
             </div>
           </div>
 
-          <div className="center container">
+          <div id="campus" className="center container">
             <h1 className="home-title center">Campus Life</h1>
             <div className="row no-gutter">
               <Card1
                 img={c1}
-                title="START UP Student over to UC Berkeley, USA"
-                para="It was an unforgettable journey for 20 students from SRM Institute of Science and Technology and SRM University, AP- Amravati, when they set foot on the hallowed grounds of the 2nd most highly ranked university for Computer Science in the USA (US News & World Report), University of California, Berkeley."
+                title="Arts and Cutlure"
+                para="Several student clubs and cultural events to unwind talents"
               />
               <Card
                 img={c2}
-                para="The Founder Chancellor of the SRM Group, Dr. Paarivendhar, who is also a Member of Parliament of Lok Sabha from the Perambalur Constituency, has transferred the money collected to the Tamil Nadu Chief Minister’s Public Relief Fund."
+                title="Athletics & Fitness"
+                para="Best in class facilities and coaches puts you on top of the world."
               />
               <Card
                 img={c3}
-                title="ARIIA 2020 Rankings : SRM secures the second position"
-                para="SRM Institute of Science and Technology (SRMIST), Kattankulathur has found a podium finish in Atal Rankings of Institutions on Innovation Achievements 2020."
+                title="Students Life"
+                para="Exciting opportunities, the way you want to be, choices are yours."
                 date="22/08/1999"
               />
             </div>
           </div>
-          <div className="ad-container">
+          <div id="admission" className="ad-container">
             <div className="container">
-              <h1 className="ad-title container">Admission</h1>
+              <h1 className="ad-title container">ADMISSION</h1>
               <div className="row">
                 <img src={ub} alt="ub" className="col-md-6" />
                 {/* <Parallax
@@ -249,7 +337,7 @@ const Home = ({ setClassName, className }) => {
               </div>
             </div>
           </div>
-          <div className="about-container container">
+          <div id="about" className="about-container container">
             <div className="row">
               <div className="col-md-6">
                 <h2 className="about-title">
@@ -303,7 +391,11 @@ const Home = ({ setClassName, className }) => {
                   </h4>
                 </div>
               </div>
-              <img src={tp} alt="tp" className="col-md-6" />
+              {/* <img src={tp} alt="tp" className="col-md-6" />
+               */}
+            </div>
+            <div className="tp">
+              <Scene />
             </div>
           </div>
         </div>

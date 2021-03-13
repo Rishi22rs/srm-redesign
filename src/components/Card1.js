@@ -8,7 +8,7 @@ const Card1 = ({
   date = "02/24/2020",
 }) => {
   return (
-    <div className="card1 col-md">
+    <div className="card1 col-xl">
       <img src={img} alt="M" className="img-card1" />
       <div className="cont">
         <p className="date">{date}</p>

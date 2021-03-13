@@ -1,0 +1,139 @@
+Dimmer
+
+What's new:
+
+
+
+v2.0.0 b8 (31 Jul 2020)
+------------------------
+
+- [FIX (partial)] The issue with "index out of bounds" stems from the fact that the DeviceName was used to establish screen device order and count. I found a different way to set this but the order might still be incorrect, however, this is a major improvement and will solve this critical issue for a lot of people.
+
+- [FIX] Touch devices no longer have the keyboard appearing when operating the sliders
+
+
+
+v2.0.0 b7 (24 Jun 2020)
+------------------------
+
+- [FIX] Disabled sliders were still being interacted with by mouse clicks and mouse-wheel
+
+- [NEW] New options in tray icon context menu
+
+- [NEW] Debug log now includes the settings data file and any error messages
+
+- UI refinements all around, more space, bigger buttons and better user experience
+
+
+
+v2.0.0 b6 (21 Jun 2020)
+------------------------
+
+- [NEW] Options to minimize inconsistencies with the UI especially on systems with custom DPI values
+	\_> PixelSnapping and LayoutRounding options are available for the app window and for every screen (can only be set in the JSON file)
+	\_> Change these settings with the app unloaded, save and run the app again
+
+- [NEW] Dimming slider now moves with the mouse-wheel for a more pleasant and expected behaviour
+
+- [FIX] Any unsaved app settings would be lost if the app was forced to close in a system Logoff, Restart or Shutdown
+
+- More debug parameters
+
+
+
+v2.0.0 b5 (15 May 2020)
+------------------------
+
+- "LastRun" time value was not being set correctly
+
+- Removed the experimental "Force dimming" option, it now happens automatically on the main dimming logic
+
+- [FIX] Fixed an issue with an internal check that should have prevented more than one instance from running at the same time
+
+- [FIX] Fixed a bug where the dimming textboxes lost focus after a change
+
+- [NEW] System tray context menu with a "Close" option
+
+- [NEW] Auto run option to make Dimmer start automatically after the user logs in to Windows
+	\_> Places a shortcut in the startup folder (per user)
+
+
+
+v2.0.0 b4 (15 Apr 2020)
+------------------------
+
+- [NEW] Checkbox to enable/disable screens
+	\_> To accomplish this before one would have to lower that screen to a zero value
+
+- [BUG] Fixed a bug with the app sometimes not restoring to the front of other windows
+
+- Minor startup logic optimizations
+
+- Minor UI improvements
+
+- [NEW] Debug tab containing data to help diagnose issues
+	\_> The data aggregated here contains no private information and it's just the bare minimum OS and screen/display info
+	\_> Send to developer will open your default email client and pre-fill all fields for your convenience
+
+- [BUG] Fixed an issue where the json config file was having malformed data
+	\_> This caused an "index out of range" error as reported by a number of people
+
+- Force dimming option was not working well in the previous version, fixed now
+
+- Removed the app version from the title as it can be found in the about
+
+
+
+v2.0.0 b3 (13 Apr 2020)
+------------------------
+
+- Minor UI tweaks
+
+- Memory optimizations
+
+- Now minimises to the system tray
+	\_> No longer shows in the taskbar
+	\_> Click the icon to restore the app window
+
+- App donate button
+	\_> Please help support this project as it funds future development and keeps the software free
+
+- Only one instance of Dimmer can run at a time
+
+- Force dimming option
+	\_> [Experimental] Here we attempt to re-dim everything
+	\_> Useful after we find a rogue window that suddenly pops out
+
+
+
+v2.0.0 b2 (20 Mar 2020)
+------------------------
+
+- Minor UI refinements
+
+- Exceptions now have Ids to help find errors easier
+	\_> Please provide feedback with these Ids
+
+- App now remembers the last window position
+
+- Option to keep the main window from being dimmed
+	\_> Useful in some scenarios
+
+- RGB tint/accent per monitor to help filter blue light, warm custom colors, etc...
+	\_> [Experimental] Only accessible by editing Dimmer.json with the app closed (RGB format > R[00] G[00] B[00] > range: 00-FF)
+
+
+
+v2.0.0 b1 (16 Mar 2020)
+------------------------
+
+- Multiple monitor support
+	\_> Unlimited monitors
+
+- Independent monitor controls
+
+- Much better error handling
+	\_> Users are encouraged to report any error and provide as much info as possible; error message, OS, monitors, etc.
+
+- Option to start Dimmer window minimised
+	\_> Useful in some scenarios

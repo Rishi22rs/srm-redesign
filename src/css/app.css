@@ -108,7 +108,8 @@ body,
   /* margin-left: -10px; */
   color: #ff4655;
   font-size: 100px;
-  font-family: "Oswald", sans-serif;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
 }
 
 .center {
@@ -123,3 +124,35 @@ body,
 .hrline {
   width: 50%;
 }
+
+.nav {
+  position: fixed;
+  z-index: 367856;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding-top: 4.5px;
+}
+.top-line {
+  width: 100%;
+  border-top: 5px solid #ff4655;
+  position: fixed;
+  z-index: 443524;
+}
+.liContainer {
+  width: 100%;
+  display: flex;
+}
+.tp {
+  /* right: 300px; */
+  position: relative;
+  top: -462px;
+}
+
+/* @media only screen and (max-width: 1200px) {
+  .tp {
+    top: -507px;
+    right: 220px;
+  }
+} */
