@@ -4,43 +4,48 @@ import React, { useState } from "react";
 function SideNav({ children, setClassName, className }) {
   return (
     <div className="App">
-      <>
-        {/* CONTAINER */}
-        <div className={className}>
-          {/*   SIDE NAV  */}
-          <nav className="side-nav">
-            <ul className="has-text-centered">
-              <h5 className="title is-7 has-text-white">The OGs!</h5>
-              <li>
-                <a href="#">Thor</a>
-              </li>
-              <li>
-                <a href="#">Iron Man</a>
-              </li>
-              <li>
-                <a href="#">Spidey</a>
-              </li>
-              <li>
-                <a href="#">Black Widow</a>
-              </li>
-              <li>
-                <a href="#">Nick Fury</a>
-              </li>
-              <li>
-                <a href="#">Capt. Sizzle Amizzle</a>
-              </li>
-              <li>
-                <a href="#">Hawkeye</a>
-              </li>
-              <li>
-                <a href="#">Hulk! Arrghh!!</a>
-              </li>
-            </ul>
-          </nav>
-          {/*   BODY SECTION */}
-          {children}
+      <div
+        className={className}
+        style={className === "canvas show-nav" ? { overflow: "hidden" } : {}}
+      >
+        {children}
+      </div>
+      <div className="sideNav-container">
+        <input type="text" placeholder="search" className="inp" />
+        <div className="links">
+          <a style={{ color: "#ff4655" }} className="side-links" href="#home">
+            HOME
+          </a>
+
+          <a style={{ color: "#ff4655" }} className="side-links" href="#news">
+            LATEST NEWS
+          </a>
+
+          <a
+            style={{ color: "#ff4655" }}
+            className="side-links"
+            href="#research"
+          >
+            RESEARCH
+          </a>
+
+          <a style={{ color: "#ff4655" }} className="side-links" href="#campus">
+            CAMPUS LIFE
+          </a>
+
+          <a
+            style={{ color: "#ff4655" }}
+            className="side-links"
+            href="#admission"
+          >
+            ADMISSION
+          </a>
+
+          <a style={{ color: "#ff4655" }} className="side-links" href="#about">
+            ABOUT
+          </a>
         </div>
-      </>
+      </div>
     </div>
   );
 }

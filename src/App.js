@@ -11,18 +11,13 @@ function App({ children }) {
   return (
     <>
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            <SideNav setClassName={setClassName} className={className}>
-              <Home
-                SideNav={SideNav}
-                setClassName={setClassName}
-                className={className}
-              />
-            </SideNav>
-          </Route>
-          <Route path="/academics" exact component={Academics} />
-        </Switch>
+        <SideNav setClassName={setClassName} className={className}>
+          <Home
+            SideNav={SideNav}
+            setClassName={setClassName}
+            className={className}
+          />
+        </SideNav>
       </Router>
     </>
   );

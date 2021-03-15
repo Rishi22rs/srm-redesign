@@ -61,7 +61,6 @@ class Scene extends React.Component {
     requestAnimationFrame(this.animate);
     this.renderer.render(this.scene, this.camera);
   };
-
   render() {
     return <div ref={this.myref} className="container"></div>;
   }

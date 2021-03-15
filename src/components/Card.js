@@ -5,7 +5,7 @@ const Card = ({
   img,
   title = "SRM Founder Chancellor donates Rs.1.15 Crores",
   para = "SRM Founder Chancellor donates Rs.1.15 Crores towards CMPRF",
-  date = "02/24/2020",
+  date = "",
 }) => {
   return (
     <div className="card col-xl">
