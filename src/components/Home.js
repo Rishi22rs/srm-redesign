@@ -383,9 +383,9 @@ const Home = ({ setClassName, className }) => {
             </div>
           </div>
           <div classname="model-cont">
-            <div className="tp">
+            {/* <div className="tp">
               <Scene />
-            </div>
+            </div> */}
             <div id="about" className="about-container container">
               <div className="row">
                 <div className="col-md-6">
@@ -440,8 +440,12 @@ const Home = ({ setClassName, className }) => {
                     </h4>
                   </div>
                 </div>
-                {/* <img src={tp} alt="tp" className="col-md-6" />
-                 */}
+                <img
+                  src={tp}
+                  alt="tp"
+                  className="col-md-6"
+                  data-aos="fade-down"
+                />
               </div>
             </div>
             <Footer />
